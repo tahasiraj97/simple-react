@@ -1,0 +1,26 @@
+# React Development Scaffold
+
+A lightweight Docker Compose development scaffold for quickly starting React projects with minimal frontend tooling.
+
+## Stack
+
+- React
+- React DOM
+- esbuild
+- nginx
+- Node.js
+- Optional ASP.NET Core backend
+- Optional PostgreSQL database
+
+## Architecture
+
+```text
+Browser
+   ↓
+Host Port
+   ↓
+nginx Reverse Proxy
+   ↓
+Frontend Container
+   ↓
+esbuild Development Server
