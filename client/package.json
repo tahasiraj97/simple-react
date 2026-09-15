@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "esbuild src/app.jsx --bundle --outfile=app.js --servedir=. --serve=frontend:8000 --watch=forever"
+    "dev": "esbuild src/app.jsx --bundle --outfile=app.js --servedir=. --serve=client:8000 --watch=forever"
   },
   "dependencies": {
     "react": "19.2.8",
