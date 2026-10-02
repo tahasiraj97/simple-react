@@ -1,26 +1,106 @@
-# React Development Scaffold
+````markdown
+# Simple React
 
-A lightweight Docker Compose development scaffold for quickly starting React projects with minimal frontend tooling.
+A lightweight React development scaffold built around Docker Compose.
 
-## Stack
+The project is intended to provide a reusable starting point for React applications without having to recreate the development environment, container configuration, and basic project structure for every new project.
 
-- React
-- React DOM
-- esbuild
-- nginx
-- Node.js
-- Optional ASP.NET Core backend
-- Optional PostgreSQL database
+## Purpose
 
-## Architecture
+This repository acts as a base template for quickly starting React projects using Docker Compose.
 
-```text
-Browser
-   ↓
-Host Port
-   ↓
-nginx Reverse Proxy
-   ↓
-Frontend Container
-   ↓
-esbuild Development Server
+Instead of installing and configuring the development environment separately for every project, the scaffold provides a containerized environment that can be cloned, renamed, and used as the foundation for a new application.
+
+## Features
+
+- React development environment
+- Docker Compose based workflow
+- Containerized Node.js environment
+- Live development and hot reload
+- Source code mounted from the host
+- Isolated project dependencies
+- Simple reusable project structure
+- Minimal starting point without application-specific code
+
+## Requirements
+
+The host system only requires:
+
+- Docker
+- Docker Compose
+- Git
+
+Node.js and project dependencies are handled inside the container.
+
+## Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/tahasiraj97/simple-react.git
+cd simple-react
+```
+
+Start the development environment:
+
+```bash
+docker compose up -d
+```
+
+Docker Compose will start the React development environment and install the required dependencies.
+
+## Development
+
+Source files can be edited directly from the host.
+
+Changes to the React application are automatically detected by the development server, allowing the application to update without manually rebuilding the container.
+
+View live container logs:
+
+```bash
+docker compose logs -f
+```
+
+View running services:
+
+```bash
+docker compose ps
+```
+
+## Rebuilding
+
+If dependencies or container configuration are changed, rebuild the environment:
+
+```bash
+docker compose up -d --build
+```
+
+## Stopping the Environment
+
+Stop and remove the running containers:
+
+```bash
+docker compose down
+```
+
+## Using as a Scaffold
+
+This repository is intended to be reused as the starting point for other React projects.
+
+A typical workflow is:
+
+```bash
+git clone https://github.com/tahasiraj97/simple-react.git my-project
+cd my-project
+rm -rf .git
+git init
+```
+
+The scaffold can then be modified for the new application's requirements while retaining the existing Docker Compose development environment.
+
+## Project Philosophy
+
+The goal of this project is to keep React development environments simple and reproducible.
+
+Application source code remains on the host while the runtime and dependencies remain inside Docker, allowing development to take place without installing or maintaining a separate Node.js environment on the host system.
+````
